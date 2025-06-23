@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KontenNegatifApp</class>
+ <widget class="QMainWindow" name="KontenNegatifApp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Aplikasi Pelaporan Konten Negatif</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+    <item>
+     <layout class="QGridLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="labelJudul">
+        <property name="text">
+         <string>Judul Laporan</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="inputJudul"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelKategori">
+        <property name="text">
+         <string>Kategori</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="comboKategori">
+        <item><property name="text"><string>Hoaks</string></property></item>
+        <item><property name="text"><string>SARA</string></property></item>
+        <item><property name="text"><string>Pornografi</string></property></item>
+        <item><property name="text"><string>Ujaran Kebencian</string></property></item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="labelTanggal">
+        <property name="text">
+         <string>Tanggal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDateEdit" name="inputTanggal">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="labelStatus">
+        <property name="text">
+         <string>Status</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="comboStatus">
+        <item><property name="text"><string>Diproses</string></property></item>
+        <item><property name="text"><string>Ditindaklanjuti</string></property></item>
+        <item><property name="text"><string>Selesai</string></property></item>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="labelKeterangan">
+        <property name="text">
+         <string>Keterangan</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QTextEdit" name="inputKeterangan"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="labelLink">
+        <property name="text">
+         <string>Link Konten</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="inputLink"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="buttonLayout">
+      <item><widget class="QPushButton" name="btnTambah"><property name="text"><string>Tambah</string></property></widget></item>
+      <item><widget class="QPushButton" name="btnHapus"><property name="text"><string>Hapus</string></property></widget></item>
+      <item><widget class="QPushButton" name="btnEkspor"><property name="text"><string>Ekspor ke PDF</string></property></widget></item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidget">
+      <column><property name="text"><string>Judul</string></property></column>
+      <column><property name="text"><string>Kategori</string></property></column>
+      <column><property name="text"><string>Tanggal</string></property></column>
+      <column><property name="text"><string>Status</string></property></column>
+      <column><property name="text"><string>Keterangan</string></property></column>
+      <column><property name="text"><string>Link</string></property></column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <widget class="QMenu" name="menuFile">
+    <property name="title"><string>File</string></property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title"><string>Help</string></property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit"><property name="text"><string>Exit</string></property></action>
+  <action name="actionAbout"><property name="text"><string>Tentang</string></property></action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
