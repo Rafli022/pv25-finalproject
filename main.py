@@ -64,6 +64,17 @@ class KontenNegatifApp(QMainWindow):
                 background-color: #2980b9;
             }
         """)
+        self.btnKeluar.setStyleSheet("""
+            QPushButton {
+                background-color: #95a5a6;
+                color: white;
+                padding: 6px;
+                border-radius: 5px;
+            }
+            QPushButton:hover {
+                background-color: #7f8c8d;
+            }
+        """)
         self.tableWidget.setStyleSheet("""
             QTableWidget {
                 background-color: #ffffff;
@@ -82,19 +93,7 @@ class KontenNegatifApp(QMainWindow):
                 font-weight: bold;
             }
         """)
-        self.btnKeluar.setStyleSheet("""
-    QPushButton {
-        background-color: #95a5a6;
-        color: white;
-        padding: 6px;
-        border-radius: 5px;
-    }
-    QPushButton:hover {
-        background-color: #7f8c8d;
-    }
-""")
 
-            
     def koneksiDatabase(self):
         self.conn = sqlite3.connect("database.db")
         self.cursor = self.conn.cursor()
@@ -113,10 +112,13 @@ class KontenNegatifApp(QMainWindow):
 
     def loadData(self):
         self.tableWidget.setRowCount(0)
-        self.cursor.execute("SELECT judul, kategori, tanggal, keterangan, link, status FROM reports")
+        self.tableWidget.setColumnCount(6)
+        self.tableWidget.setHorizontalHeaderLabels(["Status", "Judul", "Kategori", "Tanggal", "Keterangan", "Link"])
+
+        self.cursor.execute("SELECT status, judul, kategori, tanggal, keterangan, link FROM reports")
         for row_num, row_data in enumerate(self.cursor.fetchall()):
             self.tableWidget.insertRow(row_num)
-            for col_num, data in enumerate(row_data[1:]):  # Skip 'id'
+            for col_num, data in enumerate(row_data):
                 self.tableWidget.setItem(row_num, col_num, QTableWidgetItem(str(data)))
 
     def tambahData(self):
@@ -156,7 +158,7 @@ class KontenNegatifApp(QMainWindow):
             QMessageBox.warning(self, "Pilih Baris", "Pilih data yang ingin dihapus.")
             return
 
-        judul = self.tableWidget.item(baris, 0).text()
+        judul = self.tableWidget.item(baris, 1).text()  # kolom ke-1 = Judul
         try:
             self.cursor.execute("DELETE FROM reports WHERE judul=?", (judul,))
             self.conn.commit()
@@ -181,7 +183,7 @@ class KontenNegatifApp(QMainWindow):
                 self.cursor.execute("SELECT * FROM reports")
                 rows = self.cursor.fetchall()
                 for row in rows:
-                    text = f"Judul: {row[1]} | Kategori: {row[2]} | Tanggal: {row[3]} | Status: {row[4]}"
+                    text = f"Status: {row[4]} | Judul: {row[1]} | Kategori: {row[2]} | Tanggal: {row[3]} | Keterangan: {row[5]} | Link: {row[6]}"
                     c.drawString(50, y, text)
                     y -= 15
                     if y < 50:
@@ -198,7 +200,7 @@ class KontenNegatifApp(QMainWindow):
 
     def keluarAplikasi(self):
         self.close()
-       
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = KontenNegatifApp()
