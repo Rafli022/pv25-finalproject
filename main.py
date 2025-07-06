@@ -21,6 +21,7 @@ class KontenNegatifApp(QMainWindow):
         self.btnTambah.clicked.connect(self.tambahData)
         self.btnHapus.clicked.connect(self.hapusData)
         self.btnEkspor.clicked.connect(self.eksporPDF)
+        self.btnKeluar.clicked.connect(self.keluarAplikasi)
 
         # Menu
         self.actionExit.triggered.connect(self.close)
@@ -81,7 +82,19 @@ class KontenNegatifApp(QMainWindow):
                 font-weight: bold;
             }
         """)
+        self.btnKeluar.setStyleSheet("""
+    QPushButton {
+        background-color: #95a5a6;
+        color: white;
+        padding: 6px;
+        border-radius: 5px;
+    }
+    QPushButton:hover {
+        background-color: #7f8c8d;
+    }
+""")
 
+            
     def koneksiDatabase(self):
         self.conn = sqlite3.connect("database.db")
         self.cursor = self.conn.cursor()
@@ -100,7 +113,7 @@ class KontenNegatifApp(QMainWindow):
 
     def loadData(self):
         self.tableWidget.setRowCount(0)
-        self.cursor.execute("SELECT * FROM reports")
+        self.cursor.execute("SELECT judul, kategori, tanggal, keterangan, link, status FROM reports")
         for row_num, row_data in enumerate(self.cursor.fetchall()):
             self.tableWidget.insertRow(row_num)
             for col_num, data in enumerate(row_data[1:]):  # Skip 'id'
@@ -183,6 +196,9 @@ class KontenNegatifApp(QMainWindow):
     def tentang(self):
         QMessageBox.information(self, "Tentang", "Aplikasi ini dibuat oleh Rafli - F1D022022 untuk pelaporan konten negatif.")
 
+    def keluarAplikasi(self):
+        self.close()
+       
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = KontenNegatifApp()

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>600</height>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,10 +36,26 @@
       </item>
       <item row="1" column="1">
        <widget class="QComboBox" name="comboKategori">
-        <item><property name="text"><string>Hoaks</string></property></item>
-        <item><property name="text"><string>SARA</string></property></item>
-        <item><property name="text"><string>Pornografi</string></property></item>
-        <item><property name="text"><string>Ujaran Kebencian</string></property></item>
+        <item>
+         <property name="text">
+          <string>Hoaks</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>SARA</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Pornografi</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ujaran Kebencian</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item row="2" column="0">
@@ -65,9 +81,21 @@
       </item>
       <item row="3" column="1">
        <widget class="QComboBox" name="comboStatus">
-        <item><property name="text"><string>Diproses</string></property></item>
-        <item><property name="text"><string>Ditindaklanjuti</string></property></item>
-        <item><property name="text"><string>Selesai</string></property></item>
+        <item>
+         <property name="text">
+          <string>Diproses</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ditindaklanjuti</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Selesai</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item row="4" column="0">
@@ -94,38 +122,107 @@
     </item>
     <item>
      <layout class="QHBoxLayout" name="buttonLayout">
-      <item><widget class="QPushButton" name="btnTambah"><property name="text"><string>Tambah</string></property></widget></item>
-      <item><widget class="QPushButton" name="btnHapus"><property name="text"><string>Hapus</string></property></widget></item>
-      <item><widget class="QPushButton" name="btnEkspor"><property name="text"><string>Ekspor ke PDF</string></property></widget></item>
+      <item>
+       <widget class="QPushButton" name="btnTambah">
+        <property name="text">
+         <string>Tambah</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnHapus">
+        <property name="text">
+         <string>Hapus</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnEkspor">
+        <property name="text">
+         <string>Ekspor ke PDF</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
      <widget class="QTableWidget" name="tableWidget">
-      <column><property name="text"><string>Judul</string></property></column>
-      <column><property name="text"><string>Kategori</string></property></column>
-      <column><property name="text"><string>Tanggal</string></property></column>
-      <column><property name="text"><string>Status</string></property></column>
-      <column><property name="text"><string>Keterangan</string></property></column>
-      <column><property name="text"><string>Link</string></property></column>
+      <column>
+       <property name="text">
+        <string>Judul</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Kategori</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tanggal</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Keterangan</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Link</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnKeluar">
+      <property name="text">
+       <string>Keluar Aplikasi</string>
+      </property>
      </widget>
     </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>26</height>
+    </rect>
+   </property>
    <widget class="QMenu" name="menuFile">
-    <property name="title"><string>File</string></property>
+    <property name="title">
+     <string>File</string>
+    </property>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
-    <property name="title"><string>Help</string></property>
+    <property name="title">
+     <string>Help</string>
+    </property>
     <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionExit"><property name="text"><string>Exit</string></property></action>
-  <action name="actionAbout"><property name="text"><string>Tentang</string></property></action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>Tentang</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
